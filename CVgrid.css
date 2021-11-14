@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+    text-align: left;
+}
+div div div {
+    text-align: center;
+}
+#Title{
+grid-area: header;
+background-color: blueviolet;
+}
+
+#skills {
+    grid-area: left;
+    background-color: rgb(177, 222, 248);
+}
+#volunteer{
+    grid-area: footer;
+    background-color: rgb(164, 238, 96);
+}
+
+#education {
+    grid-area: center;
+    background-color: rgb(248, 222, 240);
+}
+
+#myCCGrid{
+    display: grid;
+    grid-template-areas: 
+    'header header header'
+    'left left left'
+    'footer footer footer';
+}
+@media screen and (max-width: 600px) {
+    #Title{
+        background-color: rgb(139, 46, 92) ;
+    }
+}
