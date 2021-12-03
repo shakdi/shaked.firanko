@@ -2,8 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="cssExemple.css"> 
-    <!-- לקשר את הקובץ html לקןבץ css -->
+    <link rel="stylesheet" href="cssExemple.css">
+    <!-- לקשר את הקובץ html לקןבץ css --> 
+    <script src="form.js"></script>
+    <!-- לקשר את הקובץ html לקןבץ js -->
 </head>
 <body>
     <h1 class="titel">sign up</h2>
@@ -21,7 +23,7 @@
     </form>
     <h2 class="titel">Contact us</h2>
     <p>contact <form action="" method="get"></form></p>
-    <form>
+    <form name="Contact" onsubmit="return validatePhone()">
         <label for="name">name:</label><br>
         <input type="text" id="name" name="name"><br>
         <label for="address">Address:</label><br>
