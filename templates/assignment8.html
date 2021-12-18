@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>assignment8</title>
+</head>
+<body>
+{% if session.get('logged_in') %}
+             <h4> Welcome: {{ session.get('username') }}</h4>
+             <br>
+             <form action="/logout" method="POST">  <button type="submit" class="button" >Click here to logout</button></form>
+         {% endif %}
+{% include('Header.html') %}
+<h1>Hello</h1>
+{% if user %}
+    <h2>{{ name | default('shaked', true) | upper() }} {{ last_name | default('firanko', true) | lower() }} </h2>
+    <h3>User name:{{ user.firstname }} {{ user.Lastname }}</h3>
+
+ {% block music_list %}
+    <h4>Hobbies:</h4>
+    <ol>
+        {% for hobby in hobbies %}
+                <li>{{ hobby }}</li>
+    {% endfor %}
+    </ol>
+
+    <h4>Degree: {{degree [0] }}</h4>
+     {% endblock %}
+{% else %}
+    <h3> Hello you need to be a member</h3>
+{% endif %}
+
+</body>
+</html>
+
+
+

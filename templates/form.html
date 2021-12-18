@@ -2,9 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="cssExemple.css">
-    <!-- לקשר את הקובץ html לקןבץ css --> 
-    <script src="form.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cssExemple.css') }}">
+    <!-- לקשר את הקובץ html לקןבץ css -->
+    <script src= "{{ url_for('static', filename='js/form.js') }}"></script>
+
     <!-- לקשר את הקובץ html לקןבץ js -->
 </head>
 <body>
