@@ -57,7 +57,6 @@ def assignment9():
 
     username=''
     searchname=''
-
     if request.method == 'GET':
         if 'name' in request.args:
             searchname = request.args['name']
