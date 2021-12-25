@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <form action="/assignment9" method="GET" class="Search">
+    <h2> Search:</h2>
+    <label for="name" class="label">name:</label>
+    <input id="name" type="text" name="name" value="" class="input"></br> </br>
+        <input type="submit" class="button" value="Send" > </br>
+    {%  if username and userslist %}
+        {% for user in userslist %}
+            {% if username == user.first_name  %}
+                <h4> User: {{ user.first_name }} {{ user.last_name }} , Email: {{ user.email }} , Country: {{ user.Country }}</h4>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+{% if  userslist and not username%}
+        <h3> This is the list of users:</h3>
+        {% for user in userslist %}
+             <h4> Name: {{ user.first_name }} {{ user.last_name }} </h4>
+        {% endfor %}
+    {% endif %}
+    </form>
+
+{% if  session.get('logged_in') %}
+        <h2 class="username"> Welcome, {{ session.get('username') }}</h2>
+        <br>
+        <br>
+        <form action="/logout" method="POST">  <button type="submit" class="button" >Click here to logout</button></form>
+    {% else %}
+        <br>
+        <div id="Register">
+
+
+
+    <form action="/assignment9" method="POST" class="Registration">
+    <h2> Registration:</h2>
+         <label for="username" class="label">User name:</label>
+        <input id="username" type="text" name="username" value=""  class="input"></br>
+         <label for="password" class="label">Password:</label>
+         <input id= "password" type="password" name="password" value="" class="input">
+
+
+         <button class='button' formmethod="POST"  type="submit" class="button">Submit</button>
+        </fieldset>
+        </form>
+        </div>
+    {% endif %}
+ <form action="/home" method="POST">  <button type="submit" class="button" >Back to home page</button>
+ </form>
+</body>
+</html>
