@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<br>
+<body>
+
+<form action="/insert_user" method="POST" >
+    <h2>Insert user name:</h2>
+    <label for="id">  ID:</label>
+    <br>
+    <input name="id" id="id">
+    <br>
+    <label for="email"> Email:</label>
+    <br>
+    <input name="email" type= "email" id="email">
+    <br>
+    <label for="firstname"> First Name:</label>
+    <br>
+    <input name="firstname" id="firstname">
+    <br>
+    <label for="lastname"> Last Name:</label>
+    <br>
+    <input name="lastname" id="lastname">
+    <br>
+    <label for="country">Country:</label>
+    <br>
+    <input name="country" id="country">
+    <br>
+   <input type=submit onclick="alert('The user details has been insert')">
+</form>
+
+
+<form action="/delete_user" method="POST" >
+    <h2>Delete the user from the list:</h2>
+    <label for="id">  Delete by ID:</label>
+    <br>
+    <input name="id" id="id">
+    <br>
+   <input type=submit onclick="alert('The user was deleted')">
+</form>
+
+<form action="/update_user" method="POST" >
+    <h2>Update the details:</h2>
+    <label for="id">  ID to update:</label>
+    <br>
+    <input name="id" id="id">
+    <br>
+    <label for="email"> Email:</label>
+    <br>
+    <input name="email" type= "email" id="email">
+    <br>
+    <label for="firstname"> First Name:</label>
+    <br>
+    <input name="firstname" id="firstname">
+    <br>
+    <label for="lastname"> Last Name:</label>
+    <br>
+    <input name="lastname" id="lastname">
+    <br>
+    <label for="country">Country:</label>
+    <br>
+    <input name="country" id="country">
+    <br>
+   <input type=submit onclick="alert('The user details were changed')">
+</form>
+
+</br>
+<h2>The List of the users :</h2>
+{% if users %}
+    {% for user in users %}
+            <li>
+            id: {{ user.id }} , email:{{ user.email }} , first name: {{ user.firstname }} , last name: {{ user.lastname }}, Country: {{ user.country }}
+            </li>
+    {% endfor %}
+{% endif %}
+
+</body>
+</html>
