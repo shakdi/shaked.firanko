@@ -1,0 +1,12 @@
+{% include 'Header.html' %}
+<h1>Req Frontend</h1>
+<form action="/req_frontend" method="GET" name="jsForm">
+    <input type="number" name="userID">
+</form>
+<h2>Users list
+    <button onclick="getUsers()">Get Users</button>
+</h2>
+<main>
+
+</main>
+<script src="{{ url_for('assignment10.static', filename='js/fetch_example.js') }}"></script>
