@@ -107,3 +107,18 @@ def req_backend_func():
         res = requests.get("https://reqres.in/api/users/%s" % user, verify=False)
         data = res.json()['data']
     return render_template('req_backend.html', requestUser=data)
+
+
+@Assignment10.route('/assignment12/restapi_users', defaults={'user_id': 1})
+@Assignment10.route('/assignment12/restapi_users/<int:user_id>')
+def get_user_data(user_id):
+    query = f'''
+    SELECT * from users WHERE user_id={user_id}
+    '''
+
+    user_data = interact_db(query=query, query_type='fetch', named_tuple=None, dictionary=True)
+
+    if not user_data:
+        user_data = {'error': f'user with the id: {user_id} is not in the data!'}
+
+    return Response(json.dumps(user_data), mimetype='application/json')
